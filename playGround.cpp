@@ -1,4 +1,4 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "playGround.h"
 
 
@@ -12,13 +12,13 @@ playGround::~playGround()
 }
 //tset
 //test
-//�ѱ�
+//한글
 HRESULT playGround::init()
 {
 	_backX = 2304;
 	_backY = 1440;
 
-	gameNode::init(_backX, _backY); //<-- 배경?�기?�정
+	gameNode::init(_backX, _backY); //<-- 諛곌꼍?ш린?ㅼ젙
 
 	
 	_enemy.img = IMAGEMANAGER->addFrameImage("bear", "bear.bmp", 4500, 276, 30, 2, true, RGB(255, 0, 255));
@@ -72,13 +72,13 @@ HRESULT playGround::init()
 	return S_OK;
 }
 
-//메모�??�제
+//硫붾え由??댁젣
 void playGround::release()
 {
 	
 }
 
-//?�산
+//?곗궛
 void playGround::update()
 {
 	gameNode::update();
@@ -91,11 +91,11 @@ void playGround::update()
 
 	enemyMove();
 
-	//바닥 초기??
+	//諛붾떏 珥덇린??
 	if (_pRc.bottom > _rc[0].top)
 		_player.y = _backY - 216;
 		
-	//?�프 중력
+	//?먰봽 以묐젰
 	if (_PJ == true)
 	{
 		_player.y -= _JP;
@@ -112,7 +112,7 @@ void playGround::update()
 	
 	for (int i = 1; i < 6; i++)
 	{
-		//블럭1
+		//釉붾윮1
 		if (_rc[i].top < _pRc.bottom && _rc[i].left < _pRc.left && _rc[i].right > _pRc.right  && _pRc.bottom < _rc[i].bottom && _pRc.bottom < _rc[i].top +10)
 		{
 			_PJ = false;
@@ -162,7 +162,7 @@ void playGround::update()
 		}
 	}
 	
-	//중력
+	//以묐젰
 	if (_player.y < _backY - 216 && _PW == false && _PB == false && _PJ == false)
 	{
 		_player.y -= _JP;
@@ -244,10 +244,10 @@ void playGround::update()
 	_mapE = RectMakeCenter(_map.left + _enemy.x / 6 + 10, _map.bottom - (_backY - _enemy.y) / 6 +4, 80 / 6, 116 / 6);
 }
 
-//그리�??�용
+//洹몃━湲??꾩슜
 void playGround::render(HDC hdc)
 {
-	//백버?�의 DC?�역??가지�??�다 
+	//諛깅쾭?쇱쓽 DC?곸뿭??媛吏怨??⑤떎 
 	HDC backDC = this->getBackBuffer()->getMemDC();
 	PatBlt(backDC, 0, 0, WINSIZEX , WINSIZEY , WHITENESS);
 	//=================================================
@@ -285,7 +285,7 @@ void playGround::render(HDC hdc)
 	//Rectangle(backDC, _pRc);
 
 	//=============================================
-	this->getBackBuffer()->render(hdc, _player.x , _player.y , _backX, _backY);  //<--- 캠좌?? 배경?�기 ?�정
+	this->getBackBuffer()->render(hdc, _player.x , _player.y , _backX, _backY);  //<--- 罹좎쥖?? 諛곌꼍?ш린 ?ㅼ젙
 }
 
 void playGround::playerKEY()
@@ -400,7 +400,7 @@ void playGround::playerKEY()
 	
 
 
-	//?��?
+	//?湲?
 	if (_PIR == true && _time >= 5 && _PM == false && _PJ == false && _PA == false && _PW == false)
 	{
 		_player.img->setFrameX(_index);
@@ -419,7 +419,7 @@ void playGround::playerKEY()
 			_index = 31;
 		_time = 0;
 	}
-	//?�동
+	//?대룞
 	else if (_PIR == true && _time >= 5 && _PM == true && _PJ == false && _PA == false)
 	{
 		_player.img->setFrameX(_index);
@@ -438,7 +438,7 @@ void playGround::playerKEY()
 			_index = 19;
 		_time = 0;
 	}
-	//?�프
+	//?먰봽
 	else if (_PIR == true && _time >= 5 && _PJ == true && _PA == false)
 	{
 		_player.img->setFrameX(_index);
@@ -457,7 +457,7 @@ void playGround::playerKEY()
 			_index = 32;
 		_time = 0;
 	}
-	//공격
+	//怨듦꺽
 	else if (_PIR == true && _time >= 5 && _PA == true)
 	{
 		_player.img->setFrameX(_index);
