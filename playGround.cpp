@@ -11,7 +11,6 @@ playGround::~playGround()
 {
 }
 //tset
-//test
 //한글
 HRESULT playGround::init()
 {
