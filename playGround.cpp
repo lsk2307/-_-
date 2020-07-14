@@ -11,13 +11,13 @@ playGround::~playGround()
 {
 }
 //tset
-//ÃÊ±âÈ­ ÇÔ¼ötest
+//test
 HRESULT playGround::init()
 {
 	_backX = 2304;
 	_backY = 1440;
 
-	gameNode::init(_backX, _backY); //<-- ¹è°æÅ©±â¼³Á¤
+	gameNode::init(_backX, _backY); //<-- ë°°ê²½?¬ê¸°?¤ì •
 
 	
 	_enemy.img = IMAGEMANAGER->addFrameImage("bear", "bear.bmp", 4500, 276, 30, 2, true, RGB(255, 0, 255));
@@ -71,13 +71,13 @@ HRESULT playGround::init()
 	return S_OK;
 }
 
-//¸Ş¸ğ¸® ÇØÁ¦
+//ë©”ëª¨ë¦??´ì œ
 void playGround::release()
 {
 	
 }
 
-//¿¬»ê
+//?°ì‚°
 void playGround::update()
 {
 	gameNode::update();
@@ -90,11 +90,11 @@ void playGround::update()
 
 	enemyMove();
 
-	//¹Ù´Ú ÃÊ±âÈ­
+	//ë°”ë‹¥ ì´ˆê¸°??
 	if (_pRc.bottom > _rc[0].top)
 		_player.y = _backY - 216;
 		
-	//Á¡ÇÁ Áß·Â
+	//?í”„ ì¤‘ë ¥
 	if (_PJ == true)
 	{
 		_player.y -= _JP;
@@ -111,7 +111,7 @@ void playGround::update()
 	
 	for (int i = 1; i < 6; i++)
 	{
-		//ºí·°1
+		//ë¸”ëŸ­1
 		if (_rc[i].top < _pRc.bottom && _rc[i].left < _pRc.left && _rc[i].right > _pRc.right  && _pRc.bottom < _rc[i].bottom && _pRc.bottom < _rc[i].top +10)
 		{
 			_PJ = false;
@@ -161,7 +161,7 @@ void playGround::update()
 		}
 	}
 	
-	//Áß·Â
+	//ì¤‘ë ¥
 	if (_player.y < _backY - 216 && _PW == false && _PB == false && _PJ == false)
 	{
 		_player.y -= _JP;
@@ -213,7 +213,7 @@ void playGround::update()
 	
 	if (_EA == true)
 	{
-		if (_EM == true)  //¿À
+		if (_EM == true)  //??
 		{
 			if (_enemy.x + 70 <= _pRc.left && _enemy.x + 170 > _pRc.left && _player.y > _enemy.y)
 			{
@@ -243,10 +243,10 @@ void playGround::update()
 	_mapE = RectMakeCenter(_map.left + _enemy.x / 6 + 10, _map.bottom - (_backY - _enemy.y) / 6 +4, 80 / 6, 116 / 6);
 }
 
-//±×¸®±â Àü¿ë
+//ê·¸ë¦¬ê¸??„ìš©
 void playGround::render(HDC hdc)
 {
-	//¹é¹öÆÛÀÇ DC¿µ¿ªÀ» °¡Áö°í ¿Â´Ù 
+	//ë°±ë²„?¼ì˜ DC?ì—­??ê°€ì§€ê³??¨ë‹¤ 
 	HDC backDC = this->getBackBuffer()->getMemDC();
 	PatBlt(backDC, 0, 0, WINSIZEX , WINSIZEY , WHITENESS);
 	//=================================================
@@ -284,7 +284,7 @@ void playGround::render(HDC hdc)
 	//Rectangle(backDC, _pRc);
 
 	//=============================================
-	this->getBackBuffer()->render(hdc, _player.x , _player.y , _backX, _backY);  //<--- Ä·ÁÂÇ¥, ¹è°æÅ©±â ¼³Á¤
+	this->getBackBuffer()->render(hdc, _player.x , _player.y , _backX, _backY);  //<--- ìº ì¢Œ?? ë°°ê²½?¬ê¸° ?¤ì •
 }
 
 void playGround::playerKEY()
@@ -399,7 +399,7 @@ void playGround::playerKEY()
 	
 
 
-	//´ë±â
+	//?€ê¸?
 	if (_PIR == true && _time >= 5 && _PM == false && _PJ == false && _PA == false && _PW == false)
 	{
 		_player.img->setFrameX(_index);
@@ -418,7 +418,7 @@ void playGround::playerKEY()
 			_index = 31;
 		_time = 0;
 	}
-	//ÀÌµ¿
+	//?´ë™
 	else if (_PIR == true && _time >= 5 && _PM == true && _PJ == false && _PA == false)
 	{
 		_player.img->setFrameX(_index);
@@ -437,7 +437,7 @@ void playGround::playerKEY()
 			_index = 19;
 		_time = 0;
 	}
-	//Á¡ÇÁ
+	//?í”„
 	else if (_PIR == true && _time >= 5 && _PJ == true && _PA == false)
 	{
 		_player.img->setFrameX(_index);
@@ -456,7 +456,7 @@ void playGround::playerKEY()
 			_index = 32;
 		_time = 0;
 	}
-	//°ø°İ
+	//ê³µê²©
 	else if (_PIR == true && _time >= 5 && _PA == true)
 	{
 		_player.img->setFrameX(_index);
