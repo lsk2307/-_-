@@ -10,7 +10,7 @@ playGround::playGround()
 playGround::~playGround()
 {
 }
-//수정
+//master
 //test
 //한글
 HRESULT playGround::init()
