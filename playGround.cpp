@@ -11,7 +11,7 @@ playGround::~playGround()
 {
 }
 //tset
-//초기화 함수
+//초기화 함수test
 HRESULT playGround::init()
 {
 	_backX = 2304;
