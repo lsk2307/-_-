@@ -12,6 +12,7 @@ playGround::~playGround()
 }
 //tset
 //test
+//ÇÑ±Û
 HRESULT playGround::init()
 {
 	_backX = 2304;
